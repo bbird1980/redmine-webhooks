@@ -1,0 +1,13 @@
+# encoding: utf-8
+ru:
+  label_urls: URL'ы
+  label_urls_placeholder: URL'ы на каждой строке
+  label_ssl_verify_none: Отключить верификацию SSL
+  label_webhook_tab: Webhook
+
+  notice_successful_save: Настройки успешно сохранены
+  notice_failed_save: Ошибка сохранения данных
+  notice_not_found: Не найдены webhook'и для проекта. Выключите модуль webhook в проекте, либо задайте webhook'и в настройках проекта!
+  notice_invalid: Указаны ошибочные webhook'и для проекта. Проверьте http[s]://URL в настройках проекта!
+
+  permission_save_webhook_settings: Редактирование настроек webhook'а

@@ -1,0 +1,30 @@
+<%
+  # fixme: это должно быть как-то в хуке дефолтного сеттингс контроллера, а не тут во вью, конечно!
+  current = WebhooksSettings[@project.id]
+  urls = current ? current.urls : ''
+%>
+
+<%= form_tag({ :controller => "webhook", :action => "save_settings", :project_id => @project.id, :tab => 'webhook' }, :method => :post, :class => "tabular") do %>
+  <table style="width: 100%">
+    <tbody>
+    <tr>
+      <th style="width: 60px; text-align: left"><%= l(:label_urls) %>:</th>
+      <td>
+        <%= text_area_tag 'webhook_settings[urls]', urls, :rows => 5, :class => "max-width" %>
+      </td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>
+        <%= submit_tag l(:button_save) %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<style>
+.max-width {
+    width: 100%;
+}
+</style>

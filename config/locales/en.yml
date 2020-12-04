@@ -1,0 +1,12 @@
+en:
+  label_urls: URLs
+  label_urls_placeholder: URLs on each line
+  label_ssl_verify_none: Disabled SSL verification
+  label_webhook_tab: Webhook
+
+  notice_successful_save: Settings successfully saved
+  notice_failed_save: Error while saving settings
+  notice_not_found: Project's webhooks aren't found. Switch off webhook module or add webhooks in project's settings!
+  notice_invalid: Invalid project's webhooks format. Check http[s]://URL in project's settings!
+
+  permission_save_webhook_settings: Edit webhook settings

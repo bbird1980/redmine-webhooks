@@ -1,0 +1,1 @@
+match 'webhook', :to => 'webhook#save_settings', :via => :post

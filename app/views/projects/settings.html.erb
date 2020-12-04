@@ -1,0 +1,15 @@
+<h2><%=l(:label_settings)%></h2>
+
+<%
+tabs = project_settings_tabs
+# Если модуль включен в проекте и у пользователя через роль есть права на редактирование вебхуков
+if @project.module_enabled?("webhook") && User.current.allowed_to?(:save_webhook_settings, @project)
+    tabs.push({ :name => 'webhook',
+                :action => :save_settings,
+                :partial => 'projects/settings/webhook',
+                :label => :label_webhook_tab })
+end
+%>
+<%= render_tabs tabs %>
+
+<% html_title(l(:label_settings)) -%>
