@@ -2,6 +2,8 @@ require 'redmine'
 
 require_dependency 'webhook_listener'
 
+require 'projects_helper_patch' if Redmine::VERSION::MAJOR < 4
+
 Redmine::Plugin.register :webhook do
   name 'Webhook plugin'
   author 'Evgeny Denisyuk'
