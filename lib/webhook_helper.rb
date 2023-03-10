@@ -58,6 +58,33 @@ module Redmine
           end
         end
 
+	json[:watchers] = []
+	issue.watchers.each do |watcher|
+	  json[:watchers] += [{:id => watcher.user.id, :name => watcher.user.name, :login => watcher.user.login}]
+	end
+
+	json[:tags] = issue.tags
+
+        json[:journals_full] = []
+        issue.journals().each do |journal|
+          j = {}
+          j[:id] = journal.id
+          j[:user] = {:id => journal.user_id, :name => journal.user.name, :login => journal.user.login} unless journal.user.nil?
+          j[:notes] = journal.notes
+          j[:private_notes] = journal.private_notes
+          j[:created_on] = journal.created_on
+          j[:details] = []
+          journal.visible_details.each do |detail|
+            j[:details] += [{
+              :property => detail.property,
+              :name => detail.prop_key,
+              :old_value => detail.old_value,
+              :new_value => detail.value
+            }]
+          end
+          json[:journals_full] += [j]
+        end
+
         json
       end
 

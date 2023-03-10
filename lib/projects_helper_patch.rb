@@ -5,7 +5,9 @@ module ProjectsHelperPatch
     base.class_eval do
       unloadable
 
-      alias_method_chain :project_settings_tabs, :webhook
+#      alias_method_chain :project_settings_tabs, :webhook
+	alias_method :project_settings_tabs_without_webhook, :project_settings_tabs
+	alias_method :project_settings_tabs, :project_settings_tabs_with_webhook
     end
   end
 
@@ -27,3 +29,4 @@ end
 unless ProjectsHelper.included_modules.include?(ProjectsHelperPatch)
   ProjectsHelper.send(:include, ProjectsHelperPatch)
 end
+

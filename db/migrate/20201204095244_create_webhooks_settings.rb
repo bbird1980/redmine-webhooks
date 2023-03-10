@@ -1,4 +1,4 @@
-class CreateWebhooksSettings < ActiveRecord::Migration
+class CreateWebhooksSettings < ActiveRecord::Migration[5.2]
   def self.up
     create_table :webhooks_settings do |t|
       t.column :project_id, :integer
